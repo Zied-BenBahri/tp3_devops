@@ -1,0 +1,55 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage
+coverage
+.nyc_output
+
+# Node.js
+node_modules/
+.npm
+.node_repl_history
+
+# Build output
+dist/
+build/
+tmp/
+temp/
+
+# TypeScript
+*.tsbuildinfo
+
+# Env files
+.env
+.env.*
+!.env.example
+
+# Editor/IDE
+.vscode/
+.idea/
+.history
+*.swp
+
+# OS junk
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Misc caches
+.cache/
+.eslintcache
+
+# Docker artifacts (image layers aren’t stored here, but ignore stray files)
+.docker/
