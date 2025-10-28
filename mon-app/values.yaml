@@ -11,3 +11,16 @@ service:
   nodePort: 30080
 
 containerPort: 80
+
+# ServiceAccount config (generated chart expects this)
+serviceAccount:
+  create: false # set true if you want a dedicated SA created by the chart
+  name: "" # leave empty to let Helm name it; or set an existing SA name
+  annotations: {}
+
+# Optional extras (ensure these are disabled if not used)
+ingress:
+  enabled: false
+
+autoscaling:
+  enabled: false
