@@ -11,12 +11,12 @@ pipeline {
       steps { git branch: 'main', url: 'https://github.com/Zied-BenBahri/tp3_devops.git' }
     }
 
-    stage('Construire l\'image Docker') {
+    stage('Construire l' + "'" + 'image Docker') {
       when { expression { params.BUILD_AND_PUSH } }
-      steps { sh 'docker build -t $DOCKER_IMAGE .' }
+      steps { sh 'docker build -f infra/docker/Dockerfile -t $DOCKER_IMAGE .' }
     }
 
-    stage('Pousser l\'image Docker') {
+    stage('Pousser l' + "'" + 'image Docker') {
       when { expression { params.BUILD_AND_PUSH } }
       steps {
         withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
@@ -33,8 +33,8 @@ pipeline {
         withCredentials([file(credentialsId: 'kubeconfig-dev', variable: 'KCFG')]) {
           sh '''
             export KUBECONFIG="$KCFG"
-            kubectl apply -f deployment.yaml
-            kubectl apply -f service.yaml
+            kubectl apply -f infra/k8s/base/deployment.yaml
+            kubectl apply -f infra/k8s/base/service.yaml
             kubectl rollout status deployment/mon-app-deployment --timeout=180s || true
           '''
         }

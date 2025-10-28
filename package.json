@@ -2,10 +2,10 @@
   "name": "tp3-devops-hello",
   "version": "1.0.0",
   "description": "Sample Node.js Hello World with Dockerfile",
-  "main": "index.js",
+  "main": "app/index.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "node test.js"
+    "start": "node app/index.js",
+    "test": "node app/test.js"
   },
   "keywords": ["node", "hello-world", "docker"],
   "author": "",

@@ -12,10 +12,10 @@ COPY package*.json ./
 # No runtime deps, but if a lockfile exists, install for reproducibility
 RUN if [ -f package-lock.json ]; then npm ci --omit=dev; fi
 
-# Copy application source
-COPY . .
+# Copy application source (moved under app/)
+COPY app ./app
 
 ENV NODE_ENV=production
 EXPOSE 3000
 USER nodeuser
-CMD ["node", "index.js"]
+CMD ["node", "app/index.js"]

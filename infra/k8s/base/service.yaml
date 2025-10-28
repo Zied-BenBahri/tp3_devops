@@ -8,5 +8,5 @@ spec:
     app: mon-app
   ports:
     - port: 80
-      targetPort: 80
-      nodePort: 30080 # optionnel : fixe le port pour l'accès via NodePort
+      targetPort: 3000
+      nodePort: 30080

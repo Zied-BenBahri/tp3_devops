@@ -5,7 +5,7 @@ pipeline {
   }
   environment {
     DOCKER_IMAGE    = 'ziedbenbahri/tp3-devops-hello'
-    HELM_CHART_PATH = './mon-app'
+    HELM_CHART_PATH = './infra/helm/mon-app'
   }
   stages {
     stage('Cloner le dépôt') {
@@ -21,14 +21,14 @@ pipeline {
       }
     }
 
-    stage('Construire l\'image Docker') {
+    stage('Construire l' + "'" + 'image Docker') {
       when { expression { params.BUILD_AND_PUSH } }
       steps {
-        sh 'docker build -t $DOCKER_IMAGE .'
+        sh 'docker build -f infra/docker/Dockerfile -t $DOCKER_IMAGE .'
       }
     }
 
-    stage('Pousser l\'image Docker') {
+    stage('Pousser l' + "'" + 'image Docker') {
       when { expression { params.BUILD_AND_PUSH } }
       steps {
         withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {

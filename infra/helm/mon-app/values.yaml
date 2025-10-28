@@ -10,7 +10,7 @@ service:
   port: 80
   nodePort: 30080
 
-containerPort: 80
+containerPort: 3000
 
 # ServiceAccount config (generated chart expects this)
 serviceAccount:
