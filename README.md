@@ -180,7 +180,3 @@ docker build -f infra/docker/Dockerfile -t $DOCKER_IMAGE .
     ```bash
     MSYS_NO_PATHCONV=1 docker run ... -v //var/run/docker.sock:/var/run/docker.sock ...
     ```
-
-## License
-
-MIT
